@@ -52,6 +52,13 @@
         -ms-transform: scale(-1, 1);
         transform: scale(-1, 1);
       }
+      .blink {
+        animation: blinker 3s linear infinite;
+      }
+
+      @keyframes blinker {
+        50% { opacity: 0; }
+      }
       </style>
 
   </head>
@@ -59,7 +66,7 @@
       <h1><span style="background-color: lime;">CSVCHAIN.com Gallery</span></h1>
       <h2>Roy's NFT Emporium on the Web 3.0 by <a class="magenta" href="https://roycoding.com">roycoding</a></h2>
       <hr>
-      <a class="magenta" href="chain.csv">The Raw CSVCHAIN</a> + <a class="lime" href="index.html">Home</a> + <a class="magenta" href="index.html#faq">F.A.Q.</a> + &#128038;&nbsp<a class="blue" href="https://twitter.com/csvchain">Twitter</a>&nbsp<span class="flipH">&#128038;</span>
+      <a class="magenta" href="chain.csv">The Raw CSVCHAIN</a> + <a class="lime" href="index.html">Home</a> + <a class="magenta" href="index.html#faq">F.A.Q.</a> + &#128038;&nbsp<a class="blue" href="https://twitter.com/csvchain">Twitter</a>&nbsp<span class="flipH">&#128038;</span> + <span class="blink"><a class="lime" href="https://csvchain.creator-spring.com/">CSVchain Swag Store</a></span>
       <hr>
       <ul>
       <li>Welcome to the CSVCHAIN NFT.</li>
