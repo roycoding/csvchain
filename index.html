@@ -71,19 +71,20 @@
       </style>
 
   </head>
-  <body>
+  <body onload="subsample(10)">
       <h1><img src="images/csv_icon.png" width="50px"><img src="images/usb_drive2.png" width="100px">&nbsp<span style="background-color: lime;">CSVCHAIN.com</span>&nbsp<img src="images/usb_drive2.png" width="100px"><img src="images/csv_icon.png" width="50px"></h1>
       <h2>Roy's NFT Emporium on the Web 3.0 by <a class="magenta" href="https://roycoding.com">roycoding</a></h2>
       <hr>
-      <a class="magenta" href="chain.csv">The Raw CSVCHAIN</a> + <a class="lime" href="gallery.html">The Gallery</a> + <a class="magenta" href="#faq">F.A.Q.</a> + &#128038;&nbsp<a class="twitterblue" href="https://twitter.com/csvchain">Twitter</a>&nbsp<span class="flipH">&#128038;</span> + <span class="blink"><a class="lime" href="https://swag.csvchain.com/">CSVchain Swag Store</a></span>
+      <a class="magenta" href="chain.csv">The Raw CSVCHAIN</a> + <a class="lime" href="gallery.html">The Gallery</a> + <a class="magenta" href="#faq">F.A.Q.</a> + &#128038;&nbsp<a class="twitterblue" href="https://twitter.com/csvchain">Twitter</a>&nbsp<span class="flipH">&#128038;</span> + &#128085;&nbsp;<span class="blink"><a class="lime" href="https://swag.csvchain.com/">CSVchain Swag Store</a></span>&nbsp;&#128085;
       <hr>
       <ul>
       <li>Welcome to the CSVCHAIN NFT.</li>
       <li>All of the NFTs are <b><i>guaranteed</i></b> non-fungible and backed by <a class="lime" href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> technology.</li>
       </ul>
       <hr>
-      <h2>Recent NFTs</h2>
-      <table>
+      <h2>Some Recent NFTs</h2>
+      <p>Check out the <a class="magenta" href="gallery.html">full Gallery</a></p>
+      <table id="gallery">
           <tr>
               <th>NFT image</th>
               <th>NFT name</th>
@@ -97,7 +98,7 @@
             <td>Anon</td>
             <td>$227.27</td>
             <td>hadaloha</td>
-        </tr>
+          </tr>
           <tr>
             <td><a href="images/vampire_gold_rush.png"><img src="images/vampire_gold_rush.png" width="80px"></a></td>
             <td>Vampire in a gold rush</td>
@@ -473,4 +474,30 @@
       <p>Powered by</p>
       <p><img src="images/csv_icon.png" width="50"> + <img src="images/usb_drive2.png" width="100px"></p>
   </body>
+
+  <script>
+    function subsample(n){
+      var table, rows, row, maxrows;
+      table = document.getElementById("gallery");
+      rows = table.rows;
+      maxrows = rows.length - 2;
+      console.log(maxrows)
+      const set = new Set();
+      while(set.size < n) {
+        set.add(Math.floor(Math.random() * maxrows) + 1)
+        };
+      // console.log(set)
+      // Put random subsample at top of table
+      for(let item of set){
+        // console.log(rows[item])
+        rows[1].parentNode.insertBefore(rows[item],rows[1])
+      };
+      // Drop the rest of the rows
+      for(let i=0; i<maxrows-n+1; i++){
+        // console.log("i:",i);
+        // console.log("Table length:",rows.length)
+        rows[n+1].remove();
+      }
+    }
+  </script>
 </html>
